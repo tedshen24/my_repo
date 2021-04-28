@@ -3,7 +3,7 @@ I collect top100 movies of every genres and build a dashboard for it. You can vi
 
 # Dashboard URL
 
-TODO
+https://tedshen.herokuapp.com
 
 # Files
 
