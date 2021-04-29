@@ -28,6 +28,11 @@ base_url = "https://www.rottentomatoes.com"
 
 
 def step1():
+    """
+    Input: top100_urls.
+    
+    Get url of movies from the `top100_urls`.
+    """
     fd = open('step1.json', 'w')
     for top100_url in top100_urls:
         url = base_url + top100_url
@@ -49,6 +54,15 @@ proxies = {
 
 
 def step2():
+    """
+    Input: step1.json
+    
+    1. Extract urls and visit every url
+    2. Find the movieId of each movie
+    3. Use `rotten_tomatoes_client` and get the detail of movie
+    4. Store the information into json
+      
+    """
     cnt = 0
     start = 0
     with open('step1.json') as fd:
@@ -75,6 +89,14 @@ def step2():
 
 
 def step3():
+    """
+    Input: json file list.
+    
+    1. Load json
+    2. Extract useful information from json
+    3. Store the data into csv
+    :return: 
+    """
     datas = []
     for i in range(1, 1611):
         fd = open(str(i) + '.json')
@@ -145,6 +167,7 @@ def step3():
     df = df.drop_duplicates(['title'])
     df.to_csv('all-in-one.csv', index=False)
     return df
+
 
 step1()
 step2()
